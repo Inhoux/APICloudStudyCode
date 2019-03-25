@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+
+</head>
+
+<body class="wrap">
+    <header>APICloud</header>
+    <section class="flex-1">
+
+    </section>
+    <footer>Copyright &copy;<span id="year"></span></footer>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        init();
+        fnGetWareTypeList();
+        api.openWin({
+            name: 'main',
+            url: './html/main.html',
+            slidBackEnabled:false,
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    };
+    function init(){
+        var wareTypeList = $api.getStorage('wareTypeList');
+        if(!wareTypeList){
+            wareTypeList = [{
+                  "updatedAt":"2016-10-06T11:56:16.288Z",
+                  "id":"56c80da883af652643474b6b",
+                  "createdAt":"2016-02-20T06:54:32.808Z",
+                  "banner":{
+                      "id":"57f63bdf0d3febfe58585568",
+                      "url":"http://aae9d227f777909e5899.qiniucdn.apicloud-system.com/apicloud/f761997f8fd33af25af5354737e37bcc.png",
+                      "name":"56c80da883af652643474b6b.png"
+                    },
+                  "name":"水果"
+              },
+              {
+                  "updatedAt":"2016-10-06T11:56:23.906Z",
+                  "id":"56c80db78d04c83d3d1dedea",
+                  "createdAt":"2016-02-20T06:54:47.996Z",
+                  "banner":{
+                    "id":"57f63be70d3febfe5858556c",
+                    "url":"http://aae9d227f777909e5899.qiniucdn.apicloud-system.com/apicloud/be93f9fdeda576ad81d0c728528cef50.png",
+                    "name":"56c80dc88d04c83d3d1dedf3.png"
+                  },
+                  "name":"食材"
+              },
+              {
+                  "updatedAt":"2016-10-06T11:56:28.778Z",
+                  "id":"56c80dc031da9e480de1cb49",
+                  "createdAt":"2016-02-20T06:54:56.243Z",
+                  "banner":{
+                    "id":"57f63bec9592b3fc6a341b59",
+                    "url":"http://aae9d227f777909e5899.qiniucdn.apicloud-system.com/apicloud/be93f9fdeda576ad81d0c728528cef50.png",
+                    "name":"56c80dc88d04c83d3d1dedf3.png"
+                  },
+                  "name":"零食"
+              },
+              {
+                  "updatedAt":"2016-10-06T11:56:32.300Z",
+                  "id":"56c80dc383af652643474b6d",
+                  "createdAt":"2016-02-20T06:54:59.891Z",
+                  "banner":{
+                    "id":"57f63bf0c6f05d0956108828",
+                    "url":"http://aae9d227f777909e5899.qiniucdn.apicloud-system.com/apicloud/f761997f8fd33af25af5354737e37bcc.png",
+                    "name":"56c80da883af652643474b6b.png"
+                  },
+                  "name":"牛奶"
+              },
+              {
+                  "updatedAt":"2016-10-06T11:56:35.789Z",
+                  "id":"56c80dc88d04c83d3d1dedf3",
+                  "createdAt":"2016-02-20T06:55:04.285Z",
+                  "banner":{
+                    "id":"57f63bf39592b3fc6a341b5d",
+                    "url":"http://aae9d227f777909e5899.qiniucdn.apicloud-system.com/apicloud/be93f9fdeda576ad81d0c728528cef50.png",
+                    "name":"56c80db78d04c83d3d1dedea.png"
+                  },
+                  "name":"蔬菜"
+              }];
+              $api.setStorage('wareTypeList', wareTypeList);
+
+        }
+        // var db = api.require("db");
+        // db.openDatabaseSync({
+        //     name: '201090321_DB',
+        //     path: 'fs://test.db'
+        // });
+
+    }
+    function fnGetWareTypeList(){
+        params = {
+          fields: {},
+          where:	{},
+          skip:	0,
+          limit:	5
+        }
+        params = $api.jsonToStr(params);
+
+        api.ajax({
+            url: 'http://d.apicloud.com/mcm/api/wareType?filter=' + params,
+            method: 'get',
+            headers: {
+                "X-APICloud-AppId":	"A6914327011091",
+                "X-APICloud-AppKey":	"8ac17d22e49cb7982d82796097cec52a6c7cd01d.1475375422841"
+            }
+        },function(ret, err){
+            if (ret) {
+              // console.log($api.jsonToStr(ret))
+                //alert( JSON.stringify( ret ) );
+                $api.setStorage('wareType', ret);
+
+            } else {
+                alert( JSON.stringify( err ) );
+            }
+        });
+
+    }
+</script>
+
+</html>
