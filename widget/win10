@@ -1,0 +1,40 @@
+客户端下载：https://tlanyan.me/download.php?filename=/v2/windows/Qv2ray.v2.7.0-pre1-x86.7z
+1.Qv2ray下载完成后解压，运行其中的qv2ray.exe
+V2ray官方内核下载
+64位：https://github.com/v2fly/v2ray-core/releases/download/v4.31.0/v2ray-windows-64.zip
+32位：https://github.com/v2fly/v2ray-core/releases/download/v4.31.0/v2ray-windows-32.zip
+
+Qv2ray自身相当于一个外壳，并不包含V2ray内核。在作为V2ray客户端使用时，需要另外下载V2ray官方内核搭配使用。
+
+为Qv2ray添加V2ray官方内核
+1.打开Qv2ray所在目录，找到自动生成的config文件夹。
+2.在config文件夹中，新建一个文件夹，命名为vcore。
+3.把下载好的v2ray内核解压，将其中所有文件，移动至刚才新建好的的vcore文件夹中。
+4.以上操作完成后，V2ray官方内核即成功添加。
+
+Qv2ray 插件下载
+64位：https://github.com/Qv2ray/QvPlugin-Trojan/releases/download/v3.0.0-pre3/QvPlugin-Trojan.v3.0.0-pre3.Windows-x86.dll
+32位：https://github.com/Qv2ray/QvPlugin-Trojan/releases/download/v3.0.0-pre3/QvPlugin-Trojan.v3.0.0-pre3.Windows-x64.dll
+
+认情况下，Qv2ray并不支持V2ray以外的代理协议，因此在作为SS/SSR/Trojan（我们使用的是Trojan代理）等客户端使用前，需要在Qv2ray中添加相应插件
+
+为Qv2ray安装插件，以支持Trojan协议
+1.在Qv2ray目录下的config文件夹下，找到并打开plugins文件夹（找不到的话自己新建）。
+2.把下载好的Qv2ray插件解压，将其中的相应插件，移动至plugins文件夹中。
+3.如果你的Qv2ray已经在运行中，那么右键点击系统托盘图标，将其退出。
+4.重新运行Qv2ray，即可在插件菜单下，看到刚才添加好的插件，如下图所示：
+
+
+
+Qv2ray添加代理服务器
+1.Qv2ray的主界面如下图所示，点击左下方的导入按钮，开始添加代理服务器。
+2.点击导入按钮后，即可进入下图的导入文件界面，其中的名称/前缀栏，可以任意填写，然后添加代理服务器，然后点击导入
+Qv2ray提供以下多种方式来添加代理服务器：
+  ● 链接（这里以连接为例，粘贴账号连接即可）
+  ● 二维码
+  ● 高级
+
+
+添加代理服务器后的常用操作
+双击下图中的Default Group分组，可以显示已经添加好的代理服务器。右键点击相应服务器，即可出现常用操作菜单：点击链接到此服务器 
+完成！
